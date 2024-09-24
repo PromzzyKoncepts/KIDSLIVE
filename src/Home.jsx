@@ -8,6 +8,7 @@ import { BiSearch } from "react-icons/bi";
 import Footer from "./Footer";
 import { MdOutlineArrowLeft, MdOutlineArrowRight } from "react-icons/md";
 import { FaBell, FaPlay } from "react-icons/fa6";
+import { IoMenu } from "react-icons/io5";
 
 const Home = () => {
   const sampleData = [
@@ -54,16 +55,17 @@ const Home = () => {
       <header
         style={{
           backgroundImage: `url(${header})`,
-          backgroundSize: "contain",
-          backgroundPosition: "center",
+          backgroundSize: "cover",
+          backgroundPosition: "bottom",
+          backgroundRepeat:"no-repeat"
         }}
-        className="w-full absolute h-48 top-0  z-[10000] flex items-start pt-5 px-10 justify-between"
+        className="w-screen absolute md:h-60 h-28 top-0  z-[10000] flex items-start md:pt-5 px-10 justify-between"
       >
         <div>
           <h1 className="text-[#FFEB55] text-3xl font-bold">KidzLive!</h1>
         </div>
 
-        <div className="flex items-center bg-white rounded-full py-2 px-3 w-96">
+        <div className="hidden md:flex items-center bg-white rounded-full py-2 px-3 w-96">
           <input
             type="search"
             className="bg-transparent bg-none w-full focus:outline-0"
@@ -71,11 +73,23 @@ const Home = () => {
             id=""
           />
           <button>
-            <BiSearch size={25} />
+            <BiSearch size={29} />
           </button>
         </div>
 
-        <div className="flex items-center text-white gap-5">
+        <div className="md:hidden flex items-center gap-4">
+          <button>
+            <BiSearch size={29} />
+          </button>
+          <button>
+            <IoMenu size={29} />
+          </button>
+
+
+        </div>
+
+        <div className="md:flex items-center hidden  text-white gap-5">
+            
           <Link
             to={"/live"}
             className="bg-[#FFEB55] px-3 py-2 rounded-full border-2 border-white animate-pulse hover:animate-none font-semibold text-[#9C29B2]"
@@ -92,17 +106,17 @@ const Home = () => {
       <div
         style={{
           backgroundImage: `url(${section2})`,
-          backgroundSize: "contain",
+          backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
         }}
-        className=" h-screen mt-12 grid grid-cols-2 gap-5 items-center px-10  "
+        className=" md:h-screen  md:mt-12 pt-24 pb-16 md:pb-0 md:grid grid-cols-2 gap-5 items-center px-10  "
       >
-        <div className="flex flex-col gap-5 items-start pl-10">
-          <h1 className="text-7xl font-bold gwibble  stroke-white stroke-2 ">
+        <div className="flex flex-col gap-5 items-start md:pl-10">
+          <h1 className="md:text-7xl sm:text-5xl text-3xl font-bold gwibble  stroke-white stroke-2 ">
             Welcome to KidzLive!
           </h1>
-          <p className="w-[70%]">
+          <p className="md:w-[70%] w-full">
             Enjoy our daily fun, educative and Word-filled videos for your kids.
             Share this amazing moment with us as we take you through various
             educational, creative, christian videos that will surely get your
@@ -119,7 +133,7 @@ const Home = () => {
           </div>
         </div>
 
-        <div>
+        <div className="hidden md:block">
           <img src={kidz} alt="kids image" className="" />
         </div>
       </div>
@@ -135,7 +149,7 @@ const Home = () => {
           <MdOutlineArrowRight size={20} color="purple" />
         </div>
 
-        <div className="grid grid-cols-2 gap-5 w-[70%] mx-auto my-20">
+        <div className="grid md:grid-cols-2 gap-5 w-[70%] mx-auto my-20">
           {sampleData.map((data, index) => (
             <div
             // this is the parent div
@@ -157,10 +171,10 @@ const Home = () => {
                     </div>
                   )}
               <div
-                className={`flex items-center   gap-5 p-5`}
+                className={`flex flex-col md:flex-row items-center   gap-5 p-5`}
               >
                 <img src={data.image} alt="" className={``} />
-                <div className="w-[50%]">
+                <div className="md:w-[50%]">
                   <h4 className="font-semibold text-lg text-[#9C29B2]">{data.title}</h4>
                   <p className="text-sm">{data.description}</p>
                 </div>
